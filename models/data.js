@@ -7,7 +7,15 @@ dataSchema = new Schema({
         vid: String,
         gender: String,
         dob: String,
-        data: String
+        data: String,
+        sub: {
+            type: Number,
+            default: 1
+        },
+        date: {
+            type: Date,
+            default: Date.now()
+        }
     }),
     Data = mongoose.model('Data', dataSchema);
 
