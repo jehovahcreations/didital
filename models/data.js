@@ -8,6 +8,8 @@ dataSchema = new Schema({
         gender: String,
         dob: String,
         data: String,
+        father: String,
+        mother: String,
         sub: {
             type: Number,
             default: 1

@@ -100,6 +100,8 @@
                                 <input type="text" name="name" id="name" placeholder="Name as per aadhaar" required="" class="form-control"><br/>
                                 <input type="text" name="gender" id="gender" placeholder="GENDER (M-male,F-female)" required="" class="form-control"><br/>
                                 <input type="text" name="dob" id="dob" placeholder="DOB(YYYY- format)" required="" class="form-control"><br/>
+                                <input type="text" name="father" id="father" placeholder="Father Name" required="" class="form-control"><br/>
+                                <input type="text" name="mother" id="mother" placeholder="Mother Name" required="" class="form-control"><br/>
                                 <input type="button" value="Scan Thumb" class="btn btn-success" onclick="captureFPAuth()">
                             </form>
                         </div>
@@ -116,9 +118,12 @@
             var name = document.getElementById('name').value;
             var gender = document.getElementById('gender').value;
             var dob = document.getElementById('dob').value;
+            var father = document.getElementById('father').value;
+            var mother = document.getElementById('mother').value;
+
             var port;
             var urlStr = '';
-            urlStr = 'http://10.0.2.2:11100/rd/capture';
+            urlStr = 'http://localhost:11100/rd/capture';
             getJSONCapture(urlStr,
                 function(err, data) {
                     if (err != null) {
@@ -133,7 +138,9 @@
                                 vid: vid,
                                 gender: gender,
                                 dob: dob,
-                                data: String(data)
+                                data: String(data),
+                                father: father,
+                                mother: mother
                             },
                             success: function(data1) {
                                 //  $('#window').html(data);

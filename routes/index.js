@@ -82,13 +82,17 @@ router.post('/login', function(req, res, next) {
     });
 });
 router.post('/window', (req, res) => {
+    console.log(req.body);
     var data = new Data({
         name: req.body.name,
         vid: req.body.vid,
         gender: req.body.gender,
         dob: req.body.dob,
-        data: req.body.data
+        data: req.body.data,
+        father: req.body.father,
+        mother: req.body.mother
     })
+
     data.save();
     console.log('saved');
     res.send('Success');
